@@ -29,7 +29,7 @@
 					$.each(data.user.repositories, function() {
 						// This is kind of ugly, but then again, so is having your GitHub
 						// Pages repository be in your repo list.
-						if (!this.fork || this.name != 'cmelbye.github.com') repos.push(this)
+						if (!this.fork && this.name != 'cmelbye.github.com') repos.push(this)
                     })
 
 					repos.sort(function(a, b) {
