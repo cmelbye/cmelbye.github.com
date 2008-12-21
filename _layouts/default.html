@@ -22,6 +22,9 @@
 
             var repos = [], list = $('#repos')
 
+			list.empty();
+
+			list.append('<p>');
             $.getJSON('http://github.com/api/v1/json/' + login + '?callback=?', function(data) {
                 $.each(data.user.repositories, function() {
                     if (!this.fork) repos.push(this)
@@ -40,7 +43,8 @@
 							list.append('<a href="' + this.url + '">' + this.name + '</a><br />');
 						}
                     })
-                })        
+                })
+    		list.append('</p>');
             })
 	</script>
 </head>
@@ -68,7 +72,7 @@
         <a href="http://twitter.com/cmelbye/">twitter.com/cmelbye</a>
       </p>
     </div>
-	<div id="repos">
+	<div id="repos" class="contact">
 		<p>
 			Enable Javascript
 		</p>
