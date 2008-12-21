@@ -17,7 +17,7 @@
 
 	<script type="text/javascript">
 		$(function() {
-			var limit = 10        // how many repos to list
+			var limit = 5        // how many repos to list
 			var login = 'cmelbye'   // your username
 
 			var repos = [], list = $('ul#repos')
@@ -27,7 +27,9 @@
 			
 				$.getJSON('http://github.com/api/v1/json/' + login + '?callback=?', function(data) {
 					$.each(data.user.repositories, function() {
-						if (!this.fork) repos.push(this)
+						// This is kind of ugly, but then again, so is having your GitHub
+						// Pages repository be in your repo list.
+						if (!this.fork || this.name != 'cmelbye.github.com') repos.push(this)
                     })
 
 					repos.sort(function(a, b) {
@@ -66,6 +68,11 @@
         <a href="http://twitter.com/cmelbye/">twitter.com/cmelbye</a>
       </p>
     </div>
+	<div class="contact">
+		<p>
+			<a href="http://github.com/cmelbye/cmelbye.github.com/">View Source</a>
+		</p>
+	</div>
     <!--<div class="rss">
       <a href="http://feeds.feedburner.com/tom-preston-werner">
         <img src="/images/rss.png" alt="Subscribe to RSS Feed" />
