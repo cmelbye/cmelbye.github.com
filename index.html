@@ -1,0 +1,19 @@
+---
+layout: default
+title: Github Pages
+---
+
+<div id="home">
+	<h1 id="blog_posts">Blog Posts</h1>
+	<ul class="posts">
+		{% for post in site.posts %}
+			<li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
+		{% endfor %}
+	</ul>
+	
+	<h1 id="projects">Projects</h1>
+	<ul class="posts">
+		<li><a href="#">YourWiki:</a> Free and Easy-to-Use MediaWiki Hosting done right</li>
+		<li><a href="#">Mudoo:</a> Collection of my Rails sites and tests</li>
+	</ul>
+</div>
