@@ -1,0 +1,18 @@
+---
+layout: post
+title: GitHub Pages
+---
+
+h1. {{ page.title }}
+
+p(meta). 20 Dec 2008
+
+Hey there, you've (accidentally, most likely) stumbled across my small blog that I'm currently working on. I've dabbled with different blogging engines in the past, but, "for reasons similar to mojombo's":http://mojombo.github.com/2008/11/17/blogging-like-a-hacker.html, I've decided to switch to, and hopefully stick with, something simpler and much more fun.
+
+What makes this more fun than a regular Blogger or WordPress blog? Well, this site is completely powered by "GitHub":http://github.com/, an amazing site that provides free "Git":http://git.or.cz repositories to Open Source Developers. Recently, they've applied that version control system in many innovative ways, such as their "Gist Pastebin":http://gist.github.com/ and "GitHub Pages":http://github.com/blog/272-github-pages, which is what this blog uses.
+
+I've liked Git for a long time, and it was a breath of fresh air after using "Subversion":http://subversion.tigris.org/ for most projects in the past. The concept of using any sort of "Version Control":http://en.wikipedia.org/wiki/Version_control for websites is something that is new to me, but it's apparently tried and true on many other sites across the internet. GitHub takes this one step further by implementing "Jekyll":http://github.com/mojombo/jekyll, a cool system that uses "YAML":http://www.yaml.org/ and the "Liquid Templating Language":http://www.liquidmarkup.org/. Jekyll gives users the ability to fabricate templates that will produce completely static webpages that act like fully dynamic websites. Why is that such a good thing? Well, it means that page loads take less time, and the blog is easier to develop and maintain, among many other reasons.
+
+Of course, there are downsides to this system. However, many of those problems can be circumvented with another method that will work just as well in most cases. For example, you won't be able to add in a reading of the current *server* time in your layouts, but that doesn't stop you from pulling in the *client's* current time using Javascript. Many other problems can be fixed using Javascript also, including pulling in data from an API ("JSON":http://www.json.org/), etc.
+
+So, in conclusion, many thanks to GitHub for continuing to come out with very innovative products that use Git in the most creative ways imaginable. I'm excited to see what else will come out of this, and I'm glad that I've finally found a blogging engine that might end up working out for me.
