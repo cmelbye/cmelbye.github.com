@@ -1,0 +1,234 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+	"http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<title>Pushy / Pricing</title>
+		<script src="http://www.google.com/jsapi"></script>
+		<script type="text/javascript" charset="utf-8">
+			google.load("prototype", "1.6");
+			google.load("scriptaculous", "1.8.2");
+		</script>
+		<script type="text/javascript" charset="utf-8">
+			// window load event
+			Event.observe(window, 'load', function() {
+				var slider = $('slider');
+				var handle = $('handle');
+				var notifications = $('custom-notifications');
+				var price = $('custom-price');
+				var rollover = $('custom-rollover');
+				
+				var updatePlan = function(value) {
+					notifications.update(value);
+					price.update(Math.round(value * 0.0006));
+					if( value > 20000 ) {
+						rollover.update('<strong>Rollover</strong> Notifications');
+						rollover.className = "";
+					} else {
+						rollover.update('No Rollover Notifications');
+						rollover.className = "small";
+					}
+				}
+				
+				new Control.Slider(handle, slider, {
+					range: $R(10000, 100000),
+					sliderValue: 10000,
+					increment: 5000,
+					values: [10000, 15000, 20000, 25000, 30000, 35000, 40000, 45000, 50000, 55000, 60000, 65000, 70000, 75000, 80000, 85000, 90000, 95000, 100000],
+					onSlide: updatePlan,
+					onChange: updatePlan
+				});
+			});
+		</script>
+		<style type="text/css" media="screen">
+			body {
+				font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+				font-size: 0.8em;
+			}
+			div.plans:after {
+				content: ".";
+				display: block;
+				height: 0;
+				clear: both;
+				visibility: hidden;
+			}
+			div.plans ul.plans {
+				list-style-type: none;
+			}
+			div.plans ul.plans > li {
+				display: inline;
+				width: 24%;
+				float: left;
+				text-align: center;
+				background-color: rgb(239, 239, 239);
+				border: 1px solid rgb(153, 153, 153);
+				border-right: 0;
+			}
+			div.plans ul.plans > li:hover {
+				background-color: rgb(248, 248, 248);
+			}
+			div.plans ul.plans > li.last {
+				border-right: 1px solid rgb(153, 153, 153);
+			}
+			.plan {
+				width: 24%;
+				text-align: center;
+				background-color: rgb(239, 239, 239);
+				border: 1px solid rgb(153, 153, 153);
+			}
+			.plan div.title {
+				border-bottom: 1px solid rgb(204, 204, 204);
+				padding: 0.4em;
+			}
+			.plan div.title h2 {
+				font-size: 2.3em;
+				margin: 0;
+			}
+			.plan div.title div.price {
+				font-size: 1.6em;
+				margin-bottom: 0.1em;
+			}
+			.plan div.title div.description {
+				font-size: 1.2em;
+				text-transform: uppercase;
+				font-weight: bold;
+				margin-bottom: 0.1em;
+				color: rgb(115, 161, 199);
+			}
+			.plan div.specs {
+				padding: 1em;
+			}
+			.plan div.specs ul {
+				list-style-type: none;
+				padding-left: 0;
+			}
+			.plan div.specs ul li {
+				font-size: 1.6em;
+				color: rgb(100, 80, 63);
+			}
+			.plan div.specs ul li.small {
+				font-size: 1.2em;
+				line-height: 1.6em;
+			}
+			.plan div.specs ul li strong {
+				color: rgb(195, 55, 0);
+			}
+			
+			div.slider {
+				float: right;
+				width: 75%;
+			}
+			
+			#slider {
+				width: 100%;
+				height: 10px;
+				background-color: #ccc;
+				margin-bottom: 20px;
+			}
+			
+			#handle {
+				background-color: #f00;
+				width: 10px;
+				height: 15px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="plans">
+			<h1>Choose one of our plans...</h1>
+			<ul class="plans">
+				<li class="plan">
+					<div class="title">
+						<h2>Max</h2>
+						<div class="price">$39/month</div>
+						<div class="description">For Big Applications</div>
+					</div>
+					<div class="specs">
+						<ul>
+							<li><strong>120,000</strong> Notifications</li>
+							<li><strong>Enhanced</strong> Security</li>
+							<li><strong>Rollover</strong> Notifications</li>
+						</ul>
+					</div>
+				</li>
+				<li class="plan">
+					<div class="title">
+						<h2>Premium</h2>
+						<div class="price">$29/month</div>
+						<div class="description">Best Value</div>
+					</div>
+					<div class="specs">
+						<ul>
+							<li><strong>70,000</strong> Notifications</li>
+							<li><strong>Enhanced</strong> Security</li>
+							<li><strong>Rollover</strong> Notifications</li>
+						</ul>
+					</div>
+				</li>
+				<li class="plan best">
+					<div class="title">
+						<h2>Plus</h2>
+						<div class="price">$19/month</div>
+						<div class="description">Most Popular Plan</div>
+					</div>
+					<div class="specs">
+						<ul>
+							<li><strong>35,000</strong> Notifications</li>
+							<li><strong>Enhanced</strong> Security</li>
+							<li><strong>Rollover</strong> Notifications</li>
+						</ul>
+					</div>
+				</li>
+				<li class="plan last">
+					<div class="title">
+						<h2>Basic</h2>
+						<div class="price">$9/month</div>
+						<div class="description">Just Starting Out</div>
+					</div>
+					<div class="specs">
+						<ul>
+							<li><strong>15,000</strong> Notifications</li>
+							<li><strong>Enhanced</strong> Security</li>
+							<li class="small">No Rollover Notifications</li>
+						</ul>
+					</div>
+				</li>
+			</ul>
+		</div>
+		
+		<div class="build-your-own">
+			<h1>Or, build your own!</h1>
+			<div class="slider">
+				<div id="slider">
+					<div id="handle"></div>
+				</div>
+				<div id="debug">
+					This will update with the value.
+				</div>
+			</div>
+			<div class="plan" id="custom">
+				<div class="title">
+					<h2>Custom</h2>
+					<div class="price">$<span id="custom-price">6</span>/month</div>
+					<div class="description">Build it yourself!</div>
+				</div>
+				<div class="specs">
+					<ul>
+						<li><strong id="custom-notifications">10000</strong> Notifications</li>
+						<li><strong>Enhanced</strong> Security</li>
+						<li id="custom-rollover" class="small">No Rollover Notifications</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		<div class="why">
+			
+		</div>
+		
+		<div class="footer">
+			
+		</div>
+	</body>
+</html>
