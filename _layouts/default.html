@@ -45,7 +45,6 @@
 			}
 			
 			// Twitter
-			var tweets = 5
 			var twitter_login = 'cmelbye'
 			
 			var tweets = [], tweet_list = $('ul#tweets')
@@ -53,7 +52,7 @@
 			if( tweet_list.length > 0 ) {
 				tweet_list.empty();
 				
-				$.getJSON('http://twitter.com/statuses/user_timeline/' + twitter_login + '.json?count=' + tweets + '&callback=?', function(data) {
+				$.getJSON('http://twitter.com/statuses/user_timeline/' + twitter_login + '.json?count=' + limit + '&callback=?', function(data) {
 					window.console.log(data);
 				})
 			}
