@@ -1,15 +1,27 @@
 ---
 layout: default
-title: Charles Melbye
+title: Charlie Melbye
 ---
 
 <div id="home">
-	<h1 id="blog_posts">Blog Posts</h1>
-	<ul class="posts">
-		{% for post in site.posts %}
-			<li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
-		{% endfor %}
-	</ul>
+	
+	<div id="blog_columns">
+		<div id="column_one" class="column">
+			<h1 id="twitter_tweets">Tweets</h1>
+			<ul class="tweets" id="tweets">
+				
+			</ul>
+		</div>
+		
+		<div id="column_two" class="column">
+			<h1 id="blog_posts">Blog Posts</h1>
+			<ul class="posts">
+				{% for post in site.posts %}
+					<li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
 	
 	<h1 id="projects">Projects</h1>
 	<ul class="posts">
@@ -24,6 +36,8 @@ title: Charles Melbye
 	
 	<h1 id="friends">Friends on GitHub</h1>
 	<ul class="posts">
+		<li><a href="http://github.com/martinbrandenburg">Martin Brandenburg</a></li>
 		<li><a href="http://tsion.github.com/">Scott Olson</a></li>
+		<li><a href="http://github.com/robbiet480">Robbie Trencheny</a></li>
 	</ul>
 </div>

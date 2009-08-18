@@ -56,7 +56,25 @@ table {
 /* Home
 /*
 /*****************************************************************************/
- 
+
+div#blog_columns:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+div#column_one {
+    float: left;
+    width: 45%;
+}
+
+div#column_two {
+    float: right;
+    width: 45%;
+}
+
 ul.posts {
   list-style-type: none;
   margin-bottom: 2em;
