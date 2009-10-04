@@ -29,7 +29,11 @@ run HelloRack.new
 
 Pretty simple, right? In addition, I used the following command to benchmark:
 
-	ab -n 10000 -c 1000 http://127.0.0.1:3000/
+<pre>
+<code>
+ab -n 10000 -c 1000 http://127.0.0.1:3000/
+</code>
+</pre>
 
 h2. The Results
 
