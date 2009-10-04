@@ -1,0 +1,49 @@
+---
+layout: post
+title: Thin vs. Unicorn
+---
+
+h1. {{ page.title }}
+
+p(meta). 04 Oct 2009
+
+h2. Background
+
+I've been hearing a lot of buzz lately about a new Ruby web application server called "Unicorn":http://unicorn.bogomips.org/. It can run "Rack":http://rack.rubyforge.org/ applications (including "Ruby on Rails":http://rubyonrails.org/, of course), and it has been engineered to tie in very closely with the operating system to boost performance.
+
+"Thin":http://code.macournoyer.com/thin/ is another web application server that's somewhat similar to Unicorn in that it can also run Rack applications. Thin uses the "EventMachine":http://rubyeventmachine.com/ library, however, which gives it a big speed boost over the previous standard application server, Mongrel. EventMachine also enables it to be used for asyncronous things like "long-polling Comet":http://en.wikipedia.org/wiki/Comet_(programming) servers.
+
+h2. Benchmarking
+
+I needed to choose a web server for "Pushy":http://pushyapp.com/, and I initially chose Thin. I thought it would be interesting, however, to see which of Thin and Unicorn was faster. My benchmarks were very simple, and I used the following rackup file to test the servers:
+
+{% highlight ruby %}
+class HelloRack
+	def call(env)
+		[200, {"Content-Type" => "text/html"}, ["Hello, Rack!"]]
+	end
+end
+
+run HelloRack.new
+{% endhighlight %}
+
+Pretty simple, right? In addition, I used the following command to benchmark:
+
+	ab -n 10000 -c 1000 http://127.0.0.1:3000/
+
+h2. The Results
+
+*Thin, one process*: 3638 requests / second
+
+*Thin, three processes*: 4347 requests / second
+
+*Unicorn, one worker*: 6774 requests / second
+
+*Unicorn, three workers*: 8,012 requests / second
+
+h2. Conclusion
+
+Clearly, Unicorn gives some nice performance benefits. It also seems a lot more flexible, as you don't even need to use something like nginx to load balance between worker processes -- it ties in directly with the operating system and load balances itself, which obviously lent to the performance of it.
+
+As a disclaimer, I realise that this isn't a complex benchmark at all, and there are probably ways that it could be made to be more accurate. I believe that it will give people that had the same question that I did an idea of which web application server might perform better for them.
+
