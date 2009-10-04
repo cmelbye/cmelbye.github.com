@@ -20,7 +20,11 @@ I needed to choose a web server for "Pushy":http://pushyapp.com/, and I initiall
 {% highlight ruby %}
 class HelloRack
 	def call(env)
-		[200, {"Content-Type" => "text/html"}, ["Hello, Rack!"]]
+		[
+			200,
+			{ "Content-Type" => "text/html" },
+			["Hello, Rack!"]
+		]
 	end
 end
 
@@ -29,11 +33,10 @@ run HelloRack.new
 
 Pretty simple, right? In addition, I used the following command to benchmark:
 
-<pre>
 <code>
 ab -n 10000 -c 1000 http://127.0.0.1:3000/
 </code>
-</pre>
+
 
 h2. The Results
 
