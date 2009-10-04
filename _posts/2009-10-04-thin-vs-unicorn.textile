@@ -7,8 +7,6 @@ h1. {{ page.title }}
 
 p(meta). 04 Oct 2009
 
-h2. Background
-
 I've been hearing a lot of buzz lately about a new Ruby web application server called "Unicorn":http://unicorn.bogomips.org/. It can run "Rack":http://rack.rubyforge.org/ applications (including "Ruby on Rails":http://rubyonrails.org/, of course), and it has been engineered to tie in very closely with the operating system to boost performance.
 
 "Thin":http://code.macournoyer.com/thin/ is another web application server that's somewhat similar to Unicorn in that it can also run Rack applications. Thin uses the "EventMachine":http://rubyeventmachine.com/ library, however, which gives it a big speed boost over the previous standard application server, Mongrel. EventMachine also enables it to be used for asyncronous things like "long-polling Comet":http://en.wikipedia.org/wiki/Comet_(programming) servers.
