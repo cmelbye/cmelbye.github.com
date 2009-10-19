@@ -57,6 +57,10 @@ table {
 /*
 /*****************************************************************************/
 
+div#blog_columns {
+  margin-bottom: 20px;
+}
+
 div#blog_columns:after {
     content: ".";
     display: block;

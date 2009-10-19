@@ -85,7 +85,7 @@
 						}).replace(/\B@([_a-z0-9]+)/ig, function(reply) {
 							return  reply.charAt(0)+'<a href="http://twitter.com/'+reply.substring(1)+'">'+reply.substring(1)+'</a>';
 						});
-						tweet_list.append('<li><span>' + status + '<a style="font-size:85%" href="http://twitter.com/' + username + '/statuses/' + this.id + '">' + relative_time(this.created_at) + '</a></li>');
+						tweet_list.append('<li><span>' + status + '</span> <a style="font-size:85%" href="http://twitter.com/' + username + '/statuses/' + this.id + '">' + relative_time(this.created_at) + '</a></li>');
 					});
 				})
 			}
