@@ -94,10 +94,16 @@ ul.posts {
     font-size: 80%;
   }
 
+div.tweet_column a {
+  font-size: 85%;
+  color: #303030;
+}
+
 ul#tweets li {
   list-style: none;
   margin-left: 0;
   margin-bottom: 10px;
+  font-size: 85%;
 }
   ul#tweets li span {
     display: block;

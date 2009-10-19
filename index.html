@@ -7,19 +7,20 @@ title: Charlie Melbye
 	
 	<div id="blog_columns">
 		<div id="column_one" class="column">
-			<h1 id="twitter_tweets">Tweets</h1>
-			<ul class="tweets" id="tweets">
-				
-			</ul>
-		</div>
-		
-		<div id="column_two" class="column">
 			<h1 id="blog_posts">Blog Posts</h1>
 			<ul class="posts">
 				{% for post in site.posts %}
 					<li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
 				{% endfor %}
 			</ul>
+		</div>
+		
+		<div id="column_two" class="column tweet_column">
+			<h1 id="twitter_tweets">Tweets</h1>
+			<ul class="tweets" id="tweets">
+				
+			</ul>
+			<a href="http://twitter.com/cmelbye">Follow @cmelbye...</a>
 		</div>
 	</div>
 	

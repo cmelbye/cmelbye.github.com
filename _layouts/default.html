@@ -44,7 +44,7 @@
 		$(function() {
 			
 			// GitHub Repo Listing
-			var limit = 5        // how many repos to list
+			var gh_limit = 5        // how many repos to list
 			var github_login = 'cmelbye'   // your username
 
 			var repos = [], repo_list = $('ul#repos')
@@ -63,7 +63,7 @@
 						return b.watchers - a.watchers
                     })
 				
-                	$.each(repos.slice(0, limit), function() {
+                	$.each(repos.slice(0, gh_limit), function() {
                    		repo_list.append('<li><a href="' + this.url + '">' + this.name + ':</a> ' + this.description + '</li>');
                     })
                 })
@@ -71,13 +71,14 @@
 			
 			// Twitter
 			var twitter_login = 'cmelbye'
+			var t_limit = 3;
 			
 			var tweets = [], tweet_list = $('ul#tweets')
 			
 			if( tweet_list.length > 0 ) {
 				tweet_list.empty();
 				
-				$.getJSON('http://twitter.com/statuses/user_timeline/' + twitter_login + '.json?count=' + limit + '&callback=?', function(data) {
+				$.getJSON('http://twitter.com/statuses/user_timeline/' + twitter_login + '.json?count=' + t_limit + '&callback=?', function(data) {
 					$.each(data, function() {
 						var username = this.user.screen_name;
 						var status = this.text.replace(/((https?|s?ftp|ssh)\:\/\/[^"\s\<\>]*[^.,;'">\:\s\<\>\)\]\!])/g, function(url) {
@@ -119,22 +120,9 @@
       </p>
     </div>
 	<div class="contact">
-	  <script type="text/javascript"><!--
-      google_ad_client = "pub-1046566775275227";
-      /* github ads */
-      google_ad_slot = "8077114628";
-      google_ad_width = 120;
-      google_ad_height = 90;
-      //-->
-    </script>
-    <script type="text/javascript"
-      src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-    </script>
-	</div>
-	<div class="contact">
-		<a href='http://www.catb.org/hacker-emblem/'>
+		<p><a href='http://www.catb.org/hacker-emblem/'>
 			<img src='http://www.catb.org/hacker-emblem/glider.png' alt='hacker emblem' />
-		</a>
+		</a></p>
 	</div>
     <!--<div class="rss">
       <a href="http://feeds.feedburner.com/tom-preston-werner">
