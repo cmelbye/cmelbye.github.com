@@ -97,6 +97,7 @@ ul.posts {
 ul#tweets li {
   list-style: none;
   margin-left: 0;
+  margin-bottom: 10px;
 }
   ul#tweets li span {
     display: block;
