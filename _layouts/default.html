@@ -52,8 +52,8 @@
 			if( repo_list.length > 0 ) {
 				repo_list.empty();
 			
-				$.getJSON('http://github.com/api/v1/json/' + github_login + '?callback=?', function(data) {
-					$.each(data.user.repositories, function() {
+				$.getJSON('http://github.com/api/v2/json/repos/show/' + github_login + '?callback=?', function(data) {
+					$.each(data.repositories, function() {
 						// This is kind of ugly, but then again, so is having your GitHub
 						// Pages repository be in your repo list.
 						if (!this.fork && this.name != 'cmelbye.github.com') repos.push(this)
