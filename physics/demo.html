@@ -1,0 +1,75 @@
+<html>
+	<head>
+		<title>Physics Demo</title>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.0/jquery.min.js"></script>
+		<script type="text/javascript" src="processing.js"></script>
+		<script type="text/javascript" src="init.js"></script>
+		<style type="text/css" media="screen">
+			body {
+				font-family: "Helvetica Neue", Helvetica, sans-serif;
+				padding: 25px;
+			}
+		</style>
+	</head>
+	<body>
+		<script type="application/processing">
+		Vect2D velocity;
+		float sizeWidth = 100;
+		float sizeHeight = 250;
+		float x = sizeWidth / 2;
+		float y = 30;
+		float radius = 5.0;
+		float gravity = .05;
+		
+		void setup() {
+			size(sizeWidth, sizeHeight);
+			smooth ();
+			noStroke();
+			ellipseMode (RADIUS);
+			
+			velocity = new Vect2D(0, .5);
+		}
+		
+		void draw() {
+			if(y > sizeHeight) {
+				velocity.vy *= -1;
+				velocity.vy *= .8;
+				y += velocity.vy;
+			}
+			
+			background(0, 29);
+			fill(200);
+			ellipse(x, y, radius, radius);
+			
+			x += velocity.vx;
+			velocity.vy += gravity;
+			y += velocity.vy;
+		}
+		
+		void mouseClicked() {
+			velocity.vx = 0;
+			velocity.vy = .5;
+			x = mouseX;
+			y = mouseY;
+		}
+		
+		class Vect2D {
+			float vx, vy;
+			
+			Vect2D() {}
+			
+			Vect2D(float vx, float vy) {
+				this.vx = vx;
+				this.vy = vy;
+			}
+		}
+		</script>
+		<div style="width: 300px; margin-right: 20px; float: left;">
+			<h2>Ball Drop Physics</h2>
+			<p>This is a simple demo that uses the Processing.js library and the HTML5 canvas element.</p>
+			<p>The physics are very simple, and the code can be viewed using your browser.</p>
+			<p>Click anywhere in the black area to drop the ball from that position.</p>
+		</div>
+		<canvas height="600" width="600"></canvas>
+	</body>
+</html>
