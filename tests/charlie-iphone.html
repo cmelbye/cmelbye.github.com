@@ -38,12 +38,26 @@
 	}
 	</style>
 </head>
-<body>
+<body id="page">
 	<div id="content">
-		<img src="http://a1.twimg.com/profile_images/1000648464/31530_1494418122605_1298635143_1349175_4735504_n_bigger.jpg" />
-		<h1>Oh hello there.</h1>
-		<p>Charlie Melbye is the most amazing person in the world, wouldn't you agree?</p>
-		<p class="small"><span>Q:</span> OMG! What happened to Google? <span>A:</span> I killed it.</p>
+		<img id="pic" src="http://a1.twimg.com/profile_images/1000648464/31530_1494418122605_1298635143_1349175_4735504_n_bigger.jpg" />
+		<h1 id="heading">Oh hello there.</h1>
+		<p id="desc">Charlie Melbye is the most amazing person in the world, wouldn't you agree?</p>
+		<p class="small" id="question"><span>Q:</span> OMG! What happened to Google? <span>A:</span> I killed it.</p>
 	</div>
+	<script type="text/javascript">
+	document.touchMove = function(event) {
+		event.preventDefault();
+	}
+	document.getElementById("pic").onclick = function(event) {
+		document.getElementById("page").style.backgroundColor = "#666";
+		document.getElementById("content").style.color = "#fff";
+		document.getElementById("content").style.backgroundColor = "#800517";
+		document.getElementById("heading").innerHTML = "Oh, I forgot.";
+		document.getElementById("desc").innerHTML = "Brandon Schlenker and Robbie Trencheny are pretty cool too!";
+		document.getElementById("pic").style.display = "none";
+		document.getElementById("question").style.display = "none";
+	}
+	</script>
 </body>
 </html>
