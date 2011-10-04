@@ -19,13 +19,13 @@ I needed to choose a web server for "Pushy":http://pushyapp.com/, and I initiall
 
 {% highlight ruby %}
 class HelloRack
-	def call(env)
-		[
-			200,
-			{ "Content-Type" => "text/html" },
-			["Hello, Rack!"]
-		]
-	end
+  def call(env)
+    [
+      200,
+      { "Content-Type" => "text/html" },
+      ["Hello, Rack!"]
+    ]
+  end
 end
 
 run HelloRack.new
